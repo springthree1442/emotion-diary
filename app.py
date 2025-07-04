@@ -87,8 +87,7 @@ if password == correct_pw:
         for d in dates:
             with st.expander(f"📅 {d}"):
                 for _, row in diary[diary["날짜"] == d].iterrows():
-                    st.markdown(f"**{row['감정']}**")  
-{row['일기']}")
+                    st.markdown(f"**{row['감정']}** - {row['일기']}")
     except:
         pass
 else:
