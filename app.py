@@ -16,7 +16,6 @@ if not st.session_state.unlocked:
     if password == "1234":
         st.session_state.unlocked = True
         
-        st.warning("비밀번호를 입력하면 감정일기를 작성할 수 있어요.")
         st.stop()
 
 # --- 여기부터는 잠금 해제된 후만 실행됨 ---
