@@ -8,11 +8,19 @@ st.set_page_config(page_title="감정일기", layout="centered")
 
 # --- 로그인 화면 ---
 st.markdown("<h1 style='color:#497325;'>🔐 감정일기 잠금 해제</h1>", unsafe_allow_html=True)
-password = st.text_input("비밀번호를 입력하세요", type="password")
+
+with st.form("unlock"):
+    password = st.text_input("비밀번호를 입력하세요", type="password")
+    submitted = st.form_submit_button("잠금 해제")
+
 correct_pw = "1234"
 
-if password == correct_pw:
-    st.success("접속되었습니다! 🎉")
+if submitted:
+    if password == correct_pw:
+        st.success("접속되었습니다! 🎉")
+        # 여기에 나머지 감정일기 코드 전체 복붙해서 들여쓰기 1단계 해주기
+    else:
+        st.error("❌ 비밀번호가 틀렸습니다.")
 
     emotions = {
         "😊 기쁨": "#a8c98c",
