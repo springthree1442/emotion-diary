@@ -15,7 +15,8 @@ if not st.session_state.unlocked:
     password = st.text_input("비밀번호를 입력하세요", type="password")
     if password == "1234":
         st.session_state.unlocked = True
-        st.experimental_rerun()  # 잠금 해제 직후 새로고침
+        if not st.session_state.get("unlocked", False):
+    st.stop()
     else:
         st.warning("비밀번호를 입력하면 감정일기를 작성할 수 있어요.")
         st.stop()
